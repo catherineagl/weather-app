@@ -34,7 +34,7 @@ const fillActualTempSection = (obj) => {
         <div class="options">
             <h3 class="min-temp"><i class="fas fa-temperature-low"></i> Min Today: <span class="temp">${minTemp}</span>${type}</h3>
             <h3 class="max-temp"><i class="fas fa-temperature-high"></i> High Today: <span class="temp">${maxTemp}</span>${type}</h3>
-            <h3 class="wind"><i class="fas fa-wind"></i> Wind Speed: <span>${wind}</span></h3>
+            <h3 class="wind"><i class="fas fa-wind"></i> Wind Speed: <span>${wind}</span>km/h</h3>
             <h3 class="humidity"><i class="fas fa-tint"></i> Humidity: <span>${humidity}%</span></h3>
             <h3 class="clouds"><i class="fas fa-cloud"></i> Clouds: <span>${clouds}%</span></h3>
             <h3 class="rain"><i class="fas fa-cloud-rain"></i> Rain chance: <span>${rain}%</span></h3>

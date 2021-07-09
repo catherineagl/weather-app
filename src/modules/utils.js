@@ -69,10 +69,10 @@ const changeBg = (time, sunrise, sunset) => {
     [hourSunrise] = hourSunrise.split(':')
 
     let [hourSunset] = sunset.split(' ');
-    [hourSunset] = hourSunset.split(':')
+    [hourSunset] = hourSunset.split(':');
 
-    if(hour >= hourSunset && type === 'PM') d.body.classList.add('dark');
-    if(hour < hourSunrise && type === 'AM') d.body.classList.add('dark')
+    if(Number(hour) >= Number(hourSunset) && type === 'PM') d.body.classList.add('dark');
+    else if(Number(hour) < Number(hourSunrise) && type === 'AM') d.body.classList.add('dark');
     else d.body.classList.remove('dark')
 }
 

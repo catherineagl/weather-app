@@ -18,5 +18,5 @@ d.addEventListener('click', (e) => {
 
 d.addEventListener('DOMContentLoaded', ()=> {
     loader()
-    callApi('San Francisco')
+    callApi('anderlecht')
 })
