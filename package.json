@@ -1,5 +1,5 @@
 {
-  "name": "weather_app",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,5 +7,13 @@
     "build": "webpack"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "date-fns": "^2.22.1",
+    "sweetalert2": "^11.0.18"
+  }
 }
