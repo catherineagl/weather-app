@@ -312,7 +312,7 @@ body.dark .full-date, body.dark .hours {
         background-color: var(--bg-color);
     }
     100% {
-        background-color: var(--bg-dark);
+        background: linear-gradient(180deg, rgba(34,114,153,1) 0%, rgba(15,38,75,1) 37%);
         color: white;
     }
 }
