@@ -296,6 +296,9 @@ body.dark header input[type="text"]:hover, body.dark header input[type="text"]:f
 body.dark .full-date, body.dark .hours {
     color: #ccc;
 }
+body.dark footer {
+    color: white;
+}
 
 @keyframes color-deg {
     0% {
