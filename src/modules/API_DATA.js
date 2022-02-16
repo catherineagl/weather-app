@@ -5,18 +5,19 @@ let tempType = '°C';
 let units = 'metric';
 
 const checkCoords = async (city) => {
-    try {
-        if(tempType === '°F') units = 'imperial';
-        const request = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&APPID=57c314ac189ac4b6d87bcf2a8adababc`, {mode: "cors"});
-        const response = await request.json();
-        const {lon, lat} = response.coord;
-        const cityName = response.name;
-        const country = response.sys.country;
-        checkWeather(lon, lat, cityName, country);
-    }
-    catch (err) {
-        return getError(err)
-    }
+	try {
+		if(tempType === '°F') units = 'imperial';
+		const api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&APPID=57c314ac189ac4b6d87bcf2a8adababc`;
+		const request = await fetch(api, {mode: "cors"});
+		const response = await request.json();
+		const {lon, lat} = response.coord;
+		const cityName = response.name;
+		const country = response.sys.country;
+		checkWeather(lon, lat, cityName, country);
+	}
+	catch (err) {
+		return getError(err)
+	}
 } 
 const checkWeather = async (lon, lat, city, country) => {
     try {
@@ -77,7 +78,5 @@ const formatDailyData = (daily) => {
     })
     return obj
 }
-
-
 
 export {checkCoords, checkWeather, formatActualData, formatClockData, formatDailyData, tempType}

@@ -10,6 +10,7 @@
     --bg-color: rgba(255, 255, 255, .3);
     --bg-dark: rgba(0, 0, 0, .5);
     --main-color: #0B2633;
+    --other-bg: #22719985;
     --other: #227299;
     --other-dark: #0f264b;
     --deg-color: linear-gradient(from #227299, to#0B2633)
@@ -18,7 +19,6 @@
 
 body {
     height: 100vh;
-    max-height: 100vh;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -63,9 +63,11 @@ header input[type="submit"] {
 .result {
     flex: 1;
     display: grid;
-    grid-template-columns: 35% 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 50% 1fr;
 }
+
+
 .icon {
     display: flex;
     justify-content: center;
@@ -96,7 +98,7 @@ header input[type="submit"] {
     justify-content: space-between;
     align-items: center;
     font-size: 2rem;
-    color: white;
+    color: white;flex-wrap: wrap;
 }
 
 .city-name {
@@ -105,6 +107,7 @@ header input[type="submit"] {
 .description {
     color: white;
     font-weight: 400;
+    text-transform: uppercase;
 }
 .temp-container {
     display: flex;
@@ -170,7 +173,8 @@ header input[type="submit"] {
     border: 2px solid var(--bg-color);
 }
 .other-temp .card {
-    min-width: 15%;
+    min-width: 150px;
+
     padding: 1rem;
     margin: 0 1rem;
     display: flex;
@@ -413,3 +417,66 @@ body.dark footer {
     transition: 0.3s ease all;
 }
 
+@media screen and (max-width: 768px){
+    body {
+        height:100% ;
+    }
+    .result {
+        margin: 2rem auto;
+        grid-template-columns: 450px;
+        justify-content: center;
+        align-items: center;
+    }
+    .city-name {
+        font-size: 1.5rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+
+    .temp-container {
+
+        margin: 1rem 0;
+    }
+    .temp-container .main-temp {
+        font-size: 3rem;
+    }
+    .temp-container .second-temp {
+        font-size: 1rem;
+    }
+    .options > * {
+        padding: 1rem .5rem;
+        font-size: .9rem;
+    }
+    .other-temp {
+        margin: 2rem auto;
+    }
+    .reloj .date, .hours {
+        font-size: 1.2rem;
+    }
+    .sunrise-container span, .sunset-container span {
+        font-size: 1rem;
+    }
+    .sunrise, .sunset {
+        font-size: 1rem;
+    }
+    .sunrise-container svg, .sunset-container svg {
+        width: 2rem;
+    }
+    footer {
+        color: #fff;
+    }
+    }
+
+
+@media screen and (max-width: 480px){
+    .result {
+        grid-template-columns: 100%;
+    }
+    .other-temp .card * {
+        font-size: 1rem;
+    }
+    header {
+        text-align: center;
+    }
+}

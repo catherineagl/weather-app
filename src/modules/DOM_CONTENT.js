@@ -1,25 +1,38 @@
-import { formatActualData, formatClockData, formatDailyData } from "./API_DATA";
-import { changeBg } from "./utils";
+import { formatActualData, formatClockData, formatDailyData } from './API_DATA';
+import { changeBg } from './utils';
 const d = document;
 let tempFill = false;
 
 const loader = () => {
-    const bgModal = d.createElement('div');
-    bgModal.classList.add('bg-modal');
-    const img = d.createElement('img');
-    img.classList.add('loader')
+  const bgModal = d.createElement('div');
+  bgModal.classList.add('bg-modal');
+  const img = d.createElement('img');
+  img.classList.add('loader');
 
-    img.src = './assets/images/puff.svg';
-    bgModal.appendChild(img);
-    d.body.appendChild(bgModal)
+  img.src = './assets/images/puff.svg';
+  bgModal.appendChild(img);
+  d.body.appendChild(bgModal);
 };
 
 const fillActualTempSection = (obj) => {
-    const section = d.querySelector('.actual');
-    section.innerHTML = null;
-    let {tempDescription, location, icon, todayTemp, feelsLikeTemp, minTemp, maxTemp, wind, humidity, clouds, rain, type} = obj;
-    let [city, country] = location.split(',');
-    section.innerHTML = `
+  const section = d.querySelector('.actual');
+  section.innerHTML = null;
+  let {
+    tempDescription,
+    location,
+    icon,
+    todayTemp,
+    feelsLikeTemp,
+    minTemp,
+    maxTemp,
+    wind,
+    humidity,
+    clouds,
+    rain,
+    type,
+  } = obj;
+  let [city, country] = location.split(',');
+  section.innerHTML = `
         <div class="card-header">
             <h3 class="description">${tempDescription}</h3>
             <div>
@@ -40,14 +53,14 @@ const fillActualTempSection = (obj) => {
             <h3 class="rain"><i class="fas fa-cloud-rain"></i> Rain chance: <span>${rain}%</span></h3>
         </div>
     `;
-}
+};
 
 const fillClockSection = (obj) => {
-    const clock = d.querySelector('.reloj');
-    clock.innerHTML = null;
-    let {date, time, sunrise, sunset} = obj;
-    changeBg(time, sunrise, sunset);
-    clock.innerHTML = `
+  const clock = d.querySelector('.reloj');
+  clock.innerHTML = null;
+  let { date, time, sunrise, sunset } = obj;
+  changeBg(time, sunrise, sunset);
+  clock.innerHTML = `
     <div class="date">
         <div class="full-date">${date}</div>
         <div class="hours">${time}</div>
@@ -79,39 +92,44 @@ const fillClockSection = (obj) => {
             <div class="sunset">${sunset}<div>
         </div>
     </div>
-    `
-}
+    `;
+};
 
 const fillDailyTempSection = (obj) => {
-    //let {temp, day, icon, type} = obj;
-    const otherTemp = d.querySelector('.other-temp');
-    otherTemp.innerHTML = null;
-    const fragment = d.createDocumentFragment();
-    obj.forEach(el => {
-        const article = d.createElement('article');
-        article.classList.add('card');
-        article.innerHTML = `
+  const otherTemp = d.querySelector('.other-temp');
+  otherTemp.innerHTML = null;
+  const fragment = d.createDocumentFragment();
+  obj.forEach((el) => {
+    const article = d.createElement('article');
+    article.classList.add('card');
+    article.innerHTML = `
             <h3 class="day">${el.day}</h3>
             <div class="icon"><img src="http://openweathermap.org/img/wn/${el.icon}@2x.png"></div>
             <h3 class="main-temp"><span class="temp">${el.temp}</span>${el.type}</h3>
         `;
-        fragment.appendChild(article);
-    })
-    otherTemp.appendChild(fragment);
-}
+    fragment.appendChild(article);
+  });
+  otherTemp.appendChild(fragment);
+};
 
 const renderApp = (obj, city, country) => {
-    const actualTempData = formatActualData(obj, city, country);
-    fillActualTempSection(actualTempData);
+  const actualTempData = formatActualData(obj, city, country);
+  fillActualTempSection(actualTempData);
 
-    const clockData = formatClockData(obj);
-    fillClockSection(clockData);
-    
+  const clockData = formatClockData(obj);
+  fillClockSection(clockData);
 
-    const dailyTempData = formatDailyData(obj.daily);
-    fillDailyTempSection(dailyTempData);
+  const dailyTempData = formatDailyData(obj.daily);
+  fillDailyTempSection(dailyTempData);
 
-    tempFill = true;
-}
+  tempFill = true;
+};
 
-export {loader, fillActualTempSection, fillClockSection, fillDailyTempSection, renderApp, tempFill}
+export {
+  loader,
+  fillActualTempSection,
+  fillClockSection,
+  fillDailyTempSection,
+  renderApp,
+  tempFill,
+};
