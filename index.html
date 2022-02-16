@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link href='./assets/css/poppins.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <header>
+        <!--
+                <div class="temp-btns">
+                <button class="active toggle" id="celsius">°C</button>
+                <button class="toggle" id="fah">°F</button>
+                <label for="toggle1" class="toggle-1">
+                    <input type="checkbox" id="toggle1" class="toggle-1__input" />
+                    <span class="toggle-1__button"></span>
+                </label>
+            </div>
+            -->
+
+
+        <div class="button r" id="button-1">
+            <input type="checkbox" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+        </div>
+
+        <div class="form">
+            <input type="text" placeholder="Enter city name">
+            <input type="submit" value="Search">
+        </div>
+
+    </header>
+    <main class="result">
+        <section class="actual"></section>
+        <section class="reloj"></section>
+        <section class="other-temp"></section> 
+    </main>
+    <footer>
+        Created by <a href="#">Catherine Aguilera</a> | 2021
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --bg-color: rgba(255, 255, 255, .3);
+    --bg-dark: rgba(0, 0, 0, .5);
+    --main-color: #0B2633;
+    --other: #227299;
+    --other-dark: #0f264b;
+    --deg-color: linear-gradient(from #227299, to#0B2633)
+    --second-color: #0086f0;
+}
+
+body {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url(../images/bg-4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 2rem;
+}
+
+header input {
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+    outline: none;
+    background-color: transparent;
+    border-radius: 1rem;
+}
+
+header input::placeholder, header input {
+    color: #333;
+    font-size: 1rem;
+}
+header input[type="text"]:hover, header input[type="text"]:focus {
+    background-color: var(--bg-color);
+}
+header input[type="submit"] {
+    font-size: 1rem;
+    margin-left: .5rem;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    background-color: var(--main-color);
+}
+.result {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    grid-template-rows: 50% 1fr;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+}
+.result section {
+    padding: 1rem;
+    margin: 1rem;
+}
+.actual {
+    grid-row: span 2;
+    border-radius: 1rem;
+    background-color: var(--bg-color);
+}
+
+.actual *:not(.fas) {
+    font-weight: 300;
+}
+.actual span {
+    font-weight: 400;
+}
+
+.card-header div {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.city-name {
+    font-size: 2rem;
+}
+.description {
+    color: white;
+    font-weight: 400;
+}
+.temp-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem 0;
+}
+.card-header {
+    background-color: var(--other);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.temp-container .main-temp {
+    font-size: 4rem;
+}
+.temp-container .second-temp {
+    font-size: 1.2rem;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.options h3:nth-child(odd) {
+    border-right: 1px solid #444;
+}
+.options > * {
+    width: 45%;
+    padding: 1rem;
+    margin: 0 .2rem;
+    font-size: 1rem;
+}
+
+.other-temp {
+    max-height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto;
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+}
+.other-temp::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.other-temp::-webkit-scrollbar:vertical {
+    width:10px;
+}
+.other-temp::-webkit-scrollbar-button:increment,.other-temp::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.other-temp::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.other-temp::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 1rem;
+    border: 2px solid var(--bg-color);
+}
+.other-temp .card {
+    min-width: 15%;
+    padding: 1rem;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--other);
+    border-radius: 1rem;
+}
+.other-temp .card * {
+    font-weight: 400;
+    color: #fff;
+}
+.other-temp .card .day {
+    padding: 0 .5rem;
+    border-bottom: 2px solid #ccc;
+}
+.reloj {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+}
+
+.reloj > * {
+    margin: .5rem;
+}
+
+.reloj .date, .hours {
+    font-size: 1.8rem;
+    text-align: center;
+}
+.full-date {
+    font-weight: 600;
+    color: #333;
+}
+.hours {
+    font-size: 2rem;
+    color: #333;
+
+}
+
+.sun {
+    display: flex;
+    border-radius: 1rem;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    background-color: var(--other);
+    color: #fff;
+}
+
+.sunrise-container, .sunset-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+}
+.sunrise-container span, .sunset-container span {
+    margin: 0 .5rem;
+    font-size: 1.5rem;
+}
+.sunrise, .sunset {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.sunrise-container svg, .sunset-container svg {
+    width: 3rem;
+    stroke: #fff;
+}
+.sun div {
+    margin: 0 .5rem;
+}
+
+footer {
+    height: 5vh;
+    text-align: center;
+}
+
+/*LOADER*/
+
+.bg-modal {
+    position: fixed;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+/*DARK MODE*/
+
+body.dark {
+    background-image: url(../images/bg-5.jpg);
+}
+body.dark main section {
+    animation: bg-color .5s forwards ease;
+}
+body.dark .temp-btns, body.dark .card-header, body.dark .other-temp .card, body.dark header input[type="submit"], body.dark #button-1 .knobs:before, body.dark .sun {
+    animation: color-deg .5s forwards ease;
+}
+
+body.dark header input {
+    border-color: var(--other-dark);
+}
+
+body.dark header input::placeholder, body.dark header input {
+    color: #ccc;
+}
+
+body.dark header input[type="text"]:hover, body.dark header input[type="text"]:focus {
+    background-color: var(--bg-dark);
+}
+
+body.dark .full-date, body.dark .hours {
+    color: #ccc;
+}
+body.dark footer {
+    color: white;
+}
+
+@keyframes color-deg {
+    0% {
+        background-color: var(--other);
+    }
+    100% {
+        background: rgb(34,114,153);
+        background: linear-gradient(38deg, rgba(34,114,153,1) 0%, rgba(15,38,75,1) 37%);
+    }
+}
+
+
+@keyframes bg-color {
+    0% {
+        background-color: var(--bg-color);
+    }
+    100% {
+        background-color: var(--bg-dark);
+        color: white;
+    }
+}
+
+
+/*buttons*/
+
+
+.knobs, .layer
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button
+{
+    position: relative;
+    width: 74px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.button.r, .button.r .layer
+{
+    border-radius: 100px;
+}
+
+.button.b2
+{
+    border-radius: 2px;
+}
+
+.checkbox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs
+{
+    z-index: 2;
+}
+
+.layer
+{
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+#button-1 .knobs:before
+{
+    content: '°C';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: var(--other);
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-1 .checkbox:checked + .knobs:before
+{
+    content: '°F';
+    left: 42px;
+    background-color: #f44336;
+}
+
+#button-1 .checkbox:checked ~ .layer
+{
+    background-color: #fcebeb;
+}
+
+#button-1 .knobs, #button-1 .knobs:before, #button-1 .layer
+{
+    transition: 0.3s ease all;
+}
+
